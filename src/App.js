@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import YaziListesi from './components/YaziListesi'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import YaziDetayi from './components/YaziDetayi'
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="main_wrapper">
+      <header>
       </header>
+      <div className="ui raised very padded container segment">
+        {/* <Route exact path='/' component={YaziListesi} /> */}
+        <Routes>
+          <Route path='/' element={<YaziListesi />} />
+          <Route path='/posts/:id' element={<YaziDetayi />} />
+        </Routes>
+      </div>
     </div>
   );
 }
