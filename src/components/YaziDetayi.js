@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import YaziYorumları from './YaziYorumları';
 import YorumFormu from './YorumFormu';
-
-
-
 
 const YaziDetayi = (props) => {
 
@@ -31,7 +28,7 @@ const YaziDetayi = (props) => {
 
         axios.all([
             axios.get(`https://react-yazi-yorum.herokuapp.com/posts/${id}`),
-            axios.get(`https://react-yazi-yorum.herokuapp.com/posts/latest-comments`)
+            axios.get(`https://react-yazi-yorum.herokuapp.com/posts/${id}/comments`)
         ]).then(responses => {
             setYaziDetayi(responses[0].data)
             setComment(responses[1].data)
@@ -41,7 +38,7 @@ const YaziDetayi = (props) => {
         //     then(response => setYaziDetayi(response.data)).
         //     catch(error => console.log(error))
 
-        // axios.get(`https://react-yazi-yorum.herokuapp.com/posts/latest-comments`)
+        // axios.get(`https://react-yazi-yorum.herokuapp.com/posts/${id}/comments`)
         //     .then(response => setComment(response.data))
         //     .catch(error => console.log(error))
     }, [])
@@ -49,6 +46,11 @@ const YaziDetayi = (props) => {
         <React.Fragment>
             <h2 className='ui header'>{yasiDetayi.title}</h2>
             <p>{yasiDetayi.created_at}</p>
+            <div className="ui buttons">
+                <Link className="ui bluee button" to={`/posts/${yasiDetayi.id}/edit`}>Düzenle</Link>
+                <button className="ui red button">Sil</button>
+
+            </div>
             <p>{yasiDetayi.content}</p>
 
             <YaziYorumları yorumlar={comments} handleSubmit={handleComment} />

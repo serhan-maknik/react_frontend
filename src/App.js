@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React from 'react'
 import YaziListesi from './components/YaziListesi'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import YaziDetayi from './components/YaziDetayi'
+import YaziEkle from './components/YaziEkle'
+import YaziDuzenle from './components/YaziDuzenle'
+
 
 function App() {
 
@@ -14,7 +16,9 @@ function App() {
         {/* <Route exact path='/' component={YaziListesi} /> */}
         <Routes>
           <Route path='/' element={<YaziListesi />} />
-          <Route path='/posts/:id' element={<YaziDetayi />} />
+          <Route path='/posts/:id' exact element={<YaziDetayi />} />
+          <Route path='/yaziekle/' element={<YaziEkle />} />
+          <Route path='/posts/:id/edit' element={< YaziDuzenle />} />
         </Routes>
       </div>
     </div>
