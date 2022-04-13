@@ -39,8 +39,8 @@ const YaziFormu = (props) => {
 
     }
     useEffect(() => {
-        if (props.yazi.data) setYazi(props.yazi.data)
-        console.log("serhan", props.yazi.data)
+        if (props.yazi) setYazi(props.yazi.data)
+        console.log("serhan", props.yazi)
     }, [props.yazi])
 
     return (
