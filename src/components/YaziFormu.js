@@ -17,7 +17,7 @@ const YaziFormu = (props) => {
     }
     const [hata, setHata] = useState("");
     const onFormSubmit = event => {
-        if (props.yazi.data.title) {
+        if (props.yazi) {
 
             axios.put(`${BASE_URL}/posts/${id}`, yazi)
                 .then(response => {
