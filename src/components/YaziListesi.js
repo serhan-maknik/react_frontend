@@ -12,16 +12,19 @@ const YaziListesi = (props) => {
     }, [])
 
     return (
-        <div className="ui relaxed divided list">
-            {liste.map((data, index) => (
-                <div key={index} className="item">
-                    <i className="large github middle aligned icon"></i>
-                    <div className="content">
-                        <Link to={`posts/${data.id}`} className="header">{data.title}</Link>
-                        <div className="description">{data.created_at}</div>
+        <div>
+            <p>Serhan yayınlandi</p>
+            <div className="ui relaxed divided list">
+                {liste.map((data, index) => (
+                    <div key={index} className="item">
+                        <i className="large github middle aligned icon"></i>
+                        <div className="content">
+                            <Link to={`posts/${data.id}`} className="header">{data.title}</Link>
+                            <div className="description">{data.created_at}</div>
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     )
 
