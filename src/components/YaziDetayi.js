@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import YaziYorumları from './YaziYorumları';
 import YorumFormu from './YorumFormu';
+import SilModal from './SilModal';
 
 const YaziDetayi = (props) => {
 
@@ -48,7 +49,8 @@ const YaziDetayi = (props) => {
             <p>{yasiDetayi.created_at}</p>
             <div className="ui buttons">
                 <Link className="ui bluee button" to={`/posts/${yasiDetayi.id}/edit`}>Düzenle</Link>
-                <button className="ui red button">Sil</button>
+                {/* <button className="ui red button">Sil</button> */}
+                <SilModal yazi={yasiDetayi} />
 
             </div>
             <p>{yasiDetayi.content}</p>
