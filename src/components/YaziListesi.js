@@ -13,7 +13,7 @@ const YaziListesi = (props) => {
 
     return (
         <div>
-            <p>Serhan yayınlandi</p>
+            <Link to="/yaziekle" className='ui primary button' >Yazi ekle</Link>
             <div className="ui relaxed divided list">
                 {liste.map((data, index) => (
                     <div key={index} className="item">
